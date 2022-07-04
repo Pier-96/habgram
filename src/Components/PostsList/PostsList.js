@@ -42,7 +42,7 @@ const PostsList = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/posts?keyword=${keyword}`,
+        `https://backgram.herokuapp.com/posts?keyword=${keyword}`,
         params
       );
 
@@ -82,12 +82,15 @@ const PostsList = () => {
     const idPost = li.getAttribute('data-id');
 
     try {
-      const res = await fetch(`http://localhost:4000/posts/${idPost}/like`, {
-        method: 'POST',
-        headers: {
-          Authorization: token,
-        },
-      });
+      const res = await fetch(
+        `https://backgram.herokuapp.com/posts/${idPost}/like`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
 
       const body = await res.json();
 
@@ -113,12 +116,15 @@ const PostsList = () => {
       Swal.fire('Borrado!', 'Tu post ha sido eliminado con exito!', 'success')
     ) {
       try {
-        const res = await fetch(`http://localhost:4000/posts/${idPost}`, {
-          method: 'DELETE',
-          headers: {
-            Authorization: token,
-          },
-        });
+        const res = await fetch(
+          `https://backgram.herokuapp.com/posts/${idPost}`,
+          {
+            method: 'DELETE',
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
 
         const body = await res.json();
 
@@ -194,7 +200,7 @@ const PostsList = () => {
                     <div>
                       {post.image && (
                         <img
-                          src={`http://localhost:4000/${post.image}`}
+                          src={`https://backgram.herokuapp.com/${post.image}`}
                           alt='Imagen adjunta'
                           sizes='470px'
                         />

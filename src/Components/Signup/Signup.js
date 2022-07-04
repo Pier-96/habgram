@@ -22,7 +22,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('http://localhost:4000/users', {
+      const res = await fetch('https://backgram.herokuapp.com/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

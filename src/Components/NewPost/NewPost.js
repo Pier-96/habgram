@@ -27,7 +27,7 @@ const NewPost = () => {
       formData.append('text', text);
       formData.append('image', selectedFile);
 
-      const res = await fetch('http://localhost:4000/posts', {
+      const res = await fetch('https://backgram.herokuapp.com/posts', {
         method: 'POST',
         headers: {
           Authorization: token,

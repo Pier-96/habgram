@@ -8,7 +8,7 @@ import Navbar from '../Navbar/Navbar';
 const OnePost = () => {
   const { idPost } = useParams();
 
-  const post = useFetch(`http://localhost:4000/posts/${idPost}`);
+  const post = useFetch(`https://backgram.herokuapp.com/posts/${idPost}`);
   if (!post) {
     return <div className='onePost'>Cargando...</div>;
   }
@@ -23,7 +23,10 @@ const OnePost = () => {
             {post.username}
           </h1>
           <div className='IdPost-subcontent'>
-            <img src={`http://localhost:4000/${post.image}`} alt='postimage' />
+            <img
+              src={`https://backgram.herokuapp.com/${post.image}`}
+              alt='postimage'
+            />
             <div className='like-section'>
               <p>{post.likes} Me gusta</p>
             </div>
